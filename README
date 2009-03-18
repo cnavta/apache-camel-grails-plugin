@@ -1,7 +1,5 @@
 Apache Camel Grails Plugin
 
-This plugin povides an integation with Apache Camel (http://camel.apache.org), giving Controlles and Services a 'sendMessage' method that will send
-a message to a given endpoint.
+This plugin povides an integation with Apache Camel (http://camel.apache.org), giving Controlles and Services a 'sendMessage' method that will send a message to a given endpoint.
 
-It also adds a 'Route' atifact that allows configuration of Camel routing using the Java DSL. New Routes can be
-added with the 'gails create-route MyRouteName' command.
+It also adds a 'Route' atifact that allows configuration of Camel routing using the Java DSL. New Routes can be added with the 'gails create-route MyRouteName' command.
