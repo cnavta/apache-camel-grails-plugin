@@ -37,10 +37,10 @@ class CamelGrailsPlugin {
     def authorEmail = "chris@ix-n.com"
     def title = "Integration with Apache Camel"
     def description = '''\\
-An integration with Apache Camel, giving Controllers and Services a 'sendMessage' method that will send
+This plugin provides an integration with Apache Camel (http://camel.apache.org), giving Controllers and Services a 'sendMessage' method that will send
 a message to a given endpoint.
 
-Also adds a 'Route' artifact that allows configuration of Camel routing using the Java DSL. New Routes can be
+It also adds a 'Route' artifact that allows configuration of Camel routing using the Java DSL. New Routes can be
 added with the 'grails create-route MyRouteName' command.
 '''
 

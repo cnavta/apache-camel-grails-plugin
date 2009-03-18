@@ -1,0 +1,7 @@
+Apache Camel Gails Plugin
+
+This plugin povides an integation with Apache Camel (http://camel.apache.og), giving Contolles and Sevices a 'sendMessage' method that will send
+a message to a given endpoint.
+
+It also adds a 'oute' atifact that allows configuation of Camel outing using the Java DSL. New outes can be
+added with the 'gails ceate-oute MyouteName' command.
