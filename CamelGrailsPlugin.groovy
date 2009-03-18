@@ -13,7 +13,7 @@ class CamelGrailsPlugin {
 	private static final Logger log = Logger.getLogger('org.ix.grails.plugins.camel.CamelGrailsPlugin')
 
     // the plugin version
-    def version = "0.1"
+    def version = "0.2"
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "1.1 > *"
     // the other plugins this plugin depends on
