@@ -1,4 +1,4 @@
-Apache Camel Gails Plugin
+Apache Camel Grails Plugin
 
 This plugin povides an integation with Apache Camel (http://camel.apache.og), giving Contolles and Sevices a 'sendMessage' method that will send
 a message to a given endpoint.
