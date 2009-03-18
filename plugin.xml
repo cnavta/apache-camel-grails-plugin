@@ -1,0 +1,23 @@
+<plugin name='camel' version='0.1' grailsVersion='1.1 &gt; *'>
+  <author>Chris Navta</author>
+  <authorEmail>chris@ix-n.com</authorEmail>
+  <title>Simple integration with Apache Camel</title>
+  <description>\
+A simple integration with Apache Camel, giving Controolers and Services a 'sendMessage' method that will send
+a message to a given endpoint.
+
+To configure routing, a 'Routes.grooy' is created in grails-app/conf that contains a class that extends GrailsRouteBuilder.
+</description>
+  <documentation>http://grails.org/Camel+Plugin</documentation>
+  <resources>
+    <resource>BootStrap</resource>
+    <resource>Config</resource>
+    <resource>DataSource</resource>
+    <resource>DefaultRoutes</resource>
+    <resource>spring.resources</resource>
+    <resource>UrlMappings</resource>
+    <resource>TestController</resource>
+    <resource>DefaultRoute</resource>
+  </resources>
+  <dependencies />
+</plugin>
