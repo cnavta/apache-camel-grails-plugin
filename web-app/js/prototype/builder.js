@@ -24,7 +24,7 @@ var Builder = {
   },
   // note: For Firefox < 1.5, OPTION and OPTGROUP tags are currently broken,
   //       due to a Firefox bug
-  node: function(elementName) {
+  node(elementName) {
     elementName = elementName.toUpperCase();
     
     // try innerHTML approach
@@ -76,7 +76,7 @@ var Builder = {
 
      return element;
   },
-  _text: function(text) {
+  _text(text) {
      return document.createTextNode(text);
   },
 
@@ -85,20 +85,20 @@ var Builder = {
     'htmlFor': 'for'
   },
 
-  _attributes: function(attributes) {
+  _attributes(attributes) {
     var attrs = [];
     for(attribute in attributes)
       attrs.push((attribute in this.ATTR_MAP ? this.ATTR_MAP[attribute] : attribute) +
           '="' + attributes[attribute].toString().escapeHTML().gsub(/"/,'&quot;') + '"');
     return attrs.join(" ");
   },
-  _children: function(element, children) {
+  _children(element, children) {
     if(children.tagName) {
       element.appendChild(children);
       return;
     }
     if(typeof children=='object') { // array can hold nodes and text
-      children.flatten().each( function(e) {
+      children.flatten().each( e => {
         if(typeof e=='object')
           element.appendChild(e)
         else
@@ -109,15 +109,15 @@ var Builder = {
       if(Builder._isStringOrNumber(children))
         element.appendChild(Builder._text(children));
   },
-  _isStringOrNumber: function(param) {
+  _isStringOrNumber(param) {
     return(typeof param=='string' || typeof param=='number');
   },
-  build: function(html) {
+  build(html) {
     var element = this.node('div');
     $(element).update(html.strip());
     return element.down();
   },
-  dump: function(scope) { 
+  dump(scope) { 
     if(typeof scope != 'object' && typeof scope != 'function') scope = window; //global scope 
   
     var tags = ("A ABBR ACRONYM ADDRESS APPLET AREA B BASE BASEFONT BDO BIG BLOCKQUOTE BODY " +
@@ -127,9 +127,9 @@ var Builder = {
       "PARAM PRE Q S SAMP SCRIPT SELECT SMALL SPAN STRIKE STRONG STYLE SUB SUP TABLE TBODY TD "+
       "TEXTAREA TFOOT TH THEAD TITLE TR TT U UL VAR").split(/\s+/);
   
-    tags.each( function(tag){ 
-      scope[tag] = function() { 
-        return Builder.node.apply(Builder, [tag].concat($A(arguments)));  
+    tags.each( tag => { 
+      scope[tag] = function(...args) { 
+        return Builder.node(...[tag].concat($A(args)));  
       } 
     });
   }
