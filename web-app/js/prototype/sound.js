@@ -12,20 +12,20 @@ Sound = {
   _enabled: true,
   template:
     new Template('<embed style="height:0" id="sound_#{track}_#{id}" src="#{url}" loop="false" autostart="true" hidden="true"/>'),
-  enable: function(){
+  enable() {
     Sound._enabled = true;
   },
-  disable: function(){
+  disable() {
     Sound._enabled = false;
   },
-  play: function(url){
+  play(url) {
     if(!Sound._enabled) return;
     var options = Object.extend({
-      track: 'global', url: url, replace: false
+      track: 'global', url, replace: false
     }, arguments[1] || {});
     
     if(options.replace && this.tracks[options.track]) {
-      $R(0, this.tracks[options.track].id).each(function(id){
+      $R(0, this.tracks[options.track].id).each(id => {
         var sound = $('sound_'+options.track+'_'+id);
         sound.Stop && sound.Stop();
         sound.remove();
@@ -48,8 +48,8 @@ Sound = {
 };
 
 if(Prototype.Browser.Gecko && navigator.userAgent.indexOf("Win") > 0){
-  if(navigator.plugins && $A(navigator.plugins).detect(function(p){ return p.name.indexOf('QuickTime') != -1 }))
+  if(navigator.plugins && $A(navigator.plugins).detect(p => p.name.indexOf('QuickTime') != -1))
     Sound.template = new Template('<object id="sound_#{track}_#{id}" width="0" height="0" type="audio/mpeg" data="#{url}"/>')
   else
-    Sound.play = function(){}
+    Sound.play = () => {}
 }
